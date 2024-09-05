@@ -31,6 +31,11 @@ export class ProductsController {
     return this.productsService.findOne(id);
   }
 
+  @Get()
+  findByCriteria(@Body() criteria: any): Promise<Product[]> {
+    return this.productsService.findByCriteria(criteria);
+  }
+
   @Put(':id')
   update(
     @Param('id') id: string,

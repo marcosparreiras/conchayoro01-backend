@@ -11,6 +11,12 @@ export class ProductsService {
     private readonly productModel: typeof Product,
   ) {}
 
+  async findByCriteria(criteria: any): Promise<Product[]> {
+    return this.productModel.findAll({
+      where: criteria,
+    });
+  }
+
   create(createProductDto: CreateProductDto): Promise<Product> {
     const product = {
       name: createProductDto.name,
